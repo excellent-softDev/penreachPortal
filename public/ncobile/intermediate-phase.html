@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intermediate Phase - Grade 4-6 | Penreach STEAM</title>
+    <link rel="stylesheet" href="intermediate-phase.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Penreach STEAM</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#subjects" class="nav-link">Subjects</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#challenges" class="nav-link">Challenges</a>
+                <a href="#progress" class="nav-link">My Progress</a>
+            </div>
+            <div class="user-menu">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg">
+            <div class="floating-elements">
+                <div class="float-element" data-icon="🔬" style="--delay: 0s; --duration: 15s;"></div>
+                <div class="float-element" data-icon="🧮" style="--delay: 2s; --duration: 18s;"></div>
+                <div class="float-element" data-icon="📖" style="--delay: 4s; --duration: 20s;"></div>
+                <div class="float-element" data-icon="🌍" style="--delay: 6s; --duration: 16s;"></div>
+                <div class="float-element" data-icon="💡" style="--delay: 8s; --duration: 22s;"></div>
+                <div class="float-element" data-icon="🚀" style="--delay: 10s; --duration: 19s;"></div>
+            </div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="welcome-section">
+                <h1 class="hero-title">
+                    <span class="title-line">Welcome to</span>
+                    <span class="title-line highlight">Intermediate Phase!</span>
+                </h1>
+                <p class="hero-subtitle">Discover, explore, and excel in Grade 4-6</p>
+                <div class="learner-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-trophy"></i>
+                        <div>
+                            <span id="level">Level 5</span>
+                            <span>Current Level</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-fire"></i>
+                        <div>
+                            <span id="streak">7 Days</span>
+                            <span>Learning Streak</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-star"></i>
+                        <div>
+                            <span id="points">850</span>
+                            <span>Total Points</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subjects Section -->
+    <section id="subjects" class="subjects-section">
+        <div class="container">
+            <h2 class="section-title">Explore Your Subjects</h2>
+            <div class="subjects-grid">
+                <div class="subject-card" data-subject="mathematics">
+                    <div class="subject-header">
+                        <div class="subject-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div class="subject-info">
+                            <h3>Mathematics</h3>
+                            <div class="difficulty">
+                                <i class="fas fa-signal"></i>
+                                <span>Intermediate</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subject-content">
+                        <p>Master numbers, patterns, and problem-solving</p>
+                        <div class="progress-section">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 65%;"></div>
+                            </div>
+                            <span class="progress-text">65% Complete</span>
+                        </div>
+                        <div class="subject-stats">
+                            <span><i class="fas fa-book"></i> 12 Lessons</span>
+                            <span><i class="fas fa-tasks"></i> 8 Activities</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subject-card" data-subject="language">
+                    <div class="subject-header">
+                        <div class="subject-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <div class="subject-info">
+                            <h3>Language Arts</h3>
+                            <div class="difficulty">
+                                <i class="fas fa-signal"></i>
+                                <span>Intermediate</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subject-content">
+                        <p>Improve reading, writing, and communication</p>
+                        <div class="progress-section">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 72%;"></div>
+                            </div>
+                            <span class="progress-text">72% Complete</span>
+                        </div>
+                        <div class="subject-stats">
+                            <span><i class="fas fa-book"></i> 15 Lessons</span>
+                            <span><i class="fas fa-tasks"></i> 10 Activities</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subject-card" data-subject="science">
+                    <div class="subject-header">
+                        <div class="subject-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <div class="subject-info">
+                            <h3>Natural Sciences</h3>
+                            <div class="difficulty">
+                                <i class="fas fa-signal"></i>
+                                <span>Intermediate</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subject-content">
+                        <p>Explore the natural world around us</p>
+                        <div class="progress-section">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 58%;"></div>
+                            </div>
+                            <span class="progress-text">58% Complete</span>
+                        </div>
+                        <div class="subject-stats">
+                            <span><i class="fas fa-book"></i> 10 Lessons</span>
+                            <span><i class="fas fa-tasks"></i> 6 Activities</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subject-card" data-subject="social">
+                    <div class="subject-header">
+                        <div class="subject-icon">
+                            <i class="fas fa-globe-africa"></i>
+                        </div>
+                        <div class="subject-info">
+                            <h3>Social Sciences</h3>
+                            <div class="difficulty">
+                                <i class="fas fa-signal"></i>
+                                <span>Intermediate</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subject-content">
+                        <p>Learn about history, geography, and society</p>
+                        <div class="progress-section">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 45%;"></div>
+                            </div>
+                            <span class="progress-text">45% Complete</span>
+                        </div>
+                        <div class="subject-stats">
+                            <span><i class="fas fa-book"></i> 8 Lessons</span>
+                            <span><i class="fas fa-tasks"></i> 5 Activities</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subject-card" data-subject="technology">
+                    <div class="subject-header">
+                        <div class="subject-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="subject-info">
+                            <h3>Technology</h3>
+                            <div class="difficulty">
+                                <i class="fas fa-signal"></i>
+                                <span>Intermediate</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subject-content">
+                        <p>Learn digital skills and coding basics</p>
+                        <div class="progress-section">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 80%;"></div>
+                            </div>
+                            <span class="progress-text">80% Complete</span>
+                        </div>
+                        <div class="subject-stats">
+                            <span><i class="fas fa-book"></i> 14 Lessons</span>
+                            <span><i class="fas fa-tasks"></i> 12 Activities</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="subject-card" data-subject="arts">
+                    <div class="subject-header">
+                        <div class="subject-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="subject-info">
+                            <h3>Creative Arts</h3>
+                            <div class="difficulty">
+                                <i class="fas fa-signal"></i>
+                                <span>Intermediate</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subject-content">
+                        <p>Express creativity through visual and performing arts</p>
+                        <div class="progress-section">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 90%;"></div>
+                            </div>
+                            <span class="progress-text">90% Complete</span>
+                        </div>
+                        <div class="subject-stats">
+                            <span><i class="fas fa-book"></i> 16 Lessons</span>
+                            <span><i class="fas fa-tasks"></i> 14 Activities</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="section-title">Hands-On Projects</h2>
+            <div class="projects-carousel">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Build a Simple Robot</h3>
+                        <p>Create your first robot using basic materials</p>
+                        <div class="project-meta">
+                            <span class="duration"><i class="fas fa-clock"></i> 2 hours</span>
+                            <span class="difficulty"><i class="fas fa-layer-group"></i> Medium</span>
+                        </div>
+                        <div class="project-skills">
+                            <span class="skill-tag">Engineering</span>
+                            <span class="skill-tag">Technology</span>
+                        </div>
+                        <button class="start-project-btn">Start Project</button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-vial"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Science Investigation</h3>
+                        <p>Conduct experiments and document findings</p>
+                        <div class="project-meta">
+                            <span class="duration"><i class="fas fa-clock"></i> 3 days</span>
+                            <span class="difficulty"><i class="fas fa-layer-group"></i> Easy</span>
+                        </div>
+                        <div class="project-skills">
+                            <span class="skill-tag">Science</span>
+                            <span class="skill-tag">Research</span>
+                        </div>
+                        <button class="start-project-btn">Start Project</button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Mathematics Challenge</h3>
+                        <p>Solve real-world math problems</p>
+                        <div class="project-meta">
+                            <span class="duration"><i class="fas fa-clock"></i> 1 hour</span>
+                            <span class="difficulty"><i class="fas fa-layer-group"></i> Hard</span>
+                        </div>
+                        <div class="project-skills">
+                            <span class="skill-tag">Mathematics</span>
+                            <span class="skill-tag">Problem Solving</span>
+                        </div>
+                        <button class="start-project-btn">Start Project</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenges Section -->
+    <section id="challenges" class="challenges-section">
+        <div class="container">
+            <h2 class="section-title">Weekly Challenges</h2>
+            <div class="challenges-grid">
+                <div class="challenge-card featured">
+                    <div class="challenge-header">
+                        <span class="challenge-badge">Featured</span>
+                        <div class="challenge-timer">
+                            <i class="fas fa-clock"></i>
+                            <span>3 days left</span>
+                        </div>
+                    </div>
+                    <div class="challenge-content">
+                        <h3>Innovation Challenge</h3>
+                        <p>Design a solution to help your community</p>
+                        <div class="challenge-rewards">
+                            <span><i class="fas fa-trophy"></i> 200 Points</span>
+                            <span><i class="fas fa-medal"></i> Gold Badge</span>
+                        </div>
+                        <div class="challenge-participants">
+                            <span><i class="fas fa-users"></i> 45 participants</span>
+                        </div>
+                        <button class="join-challenge-btn">Join Challenge</button>
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <span class="challenge-badge">New</span>
+                        <div class="challenge-timer">
+                            <i class="fas fa-clock"></i>
+                            <span>5 days left</span>
+                        </div>
+                    </div>
+                    <div class="challenge-content">
+                        <h3>Reading Marathon</h3>
+                        <p>Read 5 books this week</p>
+                        <div class="challenge-rewards">
+                            <span><i class="fas fa-trophy"></i> 100 Points</span>
+                            <span><i class="fas fa-medal"></i> Silver Badge</span>
+                        </div>
+                        <div class="challenge-participants">
+                            <span><i class="fas fa-users"></i> 23 participants</span>
+                        </div>
+                        <button class="join-challenge-btn">Join Challenge</button>
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <span class="challenge-badge">Popular</span>
+                        <div class="challenge-timer">
+                            <i class="fas fa-clock"></i>
+                            <span>2 days left</span>
+                        </div>
+                    </div>
+                    <div class="challenge-content">
+                        <h3>Math Sprint</h3>
+                        <p>Complete 50 math problems correctly</p>
+                        <div class="challenge-rewards">
+                            <span><i class="fas fa-trophy"></i> 150 Points</span>
+                            <span><i class="fas fa-medal"></i> Bronze Badge</span>
+                        </div>
+                        <div class="challenge-participants">
+                            <span><i class="fas fa-users"></i> 67 participants</span>
+                        </div>
+                        <button class="join-challenge-btn">Join Challenge</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Section -->
+    <section id="progress" class="progress-section">
+        <div class="container">
+            <h2 class="section-title">My Learning Progress</h2>
+            <div class="progress-dashboard">
+                <div class="progress-overview">
+                    <div class="overview-card">
+                        <div class="card-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Overall Progress</h3>
+                            <div class="circular-progress">
+                                <svg viewBox="0 0 36 36">
+                                    <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                    <path class="circle" stroke-dasharray="68, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                                </svg>
+                                <span class="percentage">68%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="achievements-grid">
+                        <div class="achievement-badge earned">
+                            <i class="fas fa-fire"></i>
+                            <span>Week Warrior</span>
+                        </div>
+                        <div class="achievement-badge earned">
+                            <i class="fas fa-brain"></i>
+                            <span>Problem Solver</span>
+                        </div>
+                        <div class="achievement-badge earned">
+                            <i class="fas fa-book-reader"></i>
+                            <span>Book Worm</span>
+                        </div>
+                        <div class="achievement-badge">
+                            <i class="fas fa-crown"></i>
+                            <span>Master Mind</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detailed-progress">
+                    <h3>Subject Progress</h3>
+                    <div class="subject-progress-list">
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Mathematics</span>
+                                <span>65%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 65%;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Language Arts</span>
+                                <span>72%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 72%;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Natural Sciences</span>
+                                <span>58%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 58%;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Social Sciences</span>
+                                <span>45%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 45%;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Technology</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-label">
+                                <span>Creative Arts</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Penreach STEAM</span>
+                </div>
+                <p>&copy; 2024 Penreach. Empowering Intermediate Phase learners.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="projectTitle">Project Title</h2>
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="projectContent">
+                    <!-- Project content will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="intermediate-phase.js"></script>
+</body>
+</html>

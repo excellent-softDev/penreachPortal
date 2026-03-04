@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation Phase - Grade R-3 | Penreach STEAM</title>
+    <link rel="stylesheet" href="foundation-phase.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Penreach STEAM</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#subjects" class="nav-link">Subjects</a>
+                <a href="#activities" class="nav-link">Activities</a>
+                <a href="#resources" class="nav-link">Resources</a>
+                <a href="#progress" class="nav-link">My Progress</a>
+            </div>
+            <div class="user-menu">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg">
+            <div class="floating-elements">
+                <div class="float-element" data-icon="🌈" style="--delay: 0s; --duration: 15s;"></div>
+                <div class="float-element" data-icon="🎨" style="--delay: 2s; --duration: 18s;"></div>
+                <div class="float-element" data-icon="🔢" style="--delay: 4s; --duration: 20s;"></div>
+                <div class="float-element" data-icon="📚" style="--delay: 6s; --duration: 16s;"></div>
+                <div class="float-element" data-icon="🧩" style="--delay: 8s; --duration: 22s;"></div>
+                <div class="float-element" data-icon="🌟" style="--delay: 10s; --duration: 19s;"></div>
+            </div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="welcome-section">
+                <h1 class="hero-title">
+                    <span class="title-line">Welcome to</span>
+                    <span class="title-line highlight">Foundation Phase!</span>
+                </h1>
+                <p class="hero-subtitle">Fun learning adventures for Grade R-3 learners</p>
+                <div class="learner-info">
+                    <div class="info-card">
+                        <i class="fas fa-user-graduate"></i>
+                        <span id="learnerName">Young Explorer</span>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-trophy"></i>
+                        <span id="pointsCount">0 Points</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="quick-actions">
+        <div class="container">
+            <h2 class="section-title">Start Your Learning Adventure</h2>
+            <div class="actions-grid">
+                <div class="action-card" data-subject="mathematics">
+                    <div class="card-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Mathematics</h3>
+                    <p>Count, add, and have fun with numbers!</p>
+                    <div class="card-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 30%;"></div>
+                        </div>
+                        <span>30% Complete</span>
+                    </div>
+                </div>
+
+                <div class="action-card" data-subject="language">
+                    <div class="card-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Language</h3>
+                    <p>Read stories and learn new words!</p>
+                    <div class="card-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 60%;"></div>
+                        </div>
+                        <span>60% Complete</span>
+                    </div>
+                </div>
+
+                <div class="action-card" data-subject="science">
+                    <div class="card-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Science</h3>
+                    <p>Explore the amazing world around us!</p>
+                    <div class="card-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 45%;"></div>
+                        </div>
+                        <span>45% Complete</span>
+                    </div>
+                </div>
+
+                <div class="action-card" data-subject="art">
+                    <div class="card-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Art & Creativity</h3>
+                    <p>Draw, paint, and express yourself!</p>
+                    <div class="card-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%;"></div>
+                        </div>
+                        <span>80% Complete</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daily Activities -->
+    <section id="activities" class="daily-activities">
+        <div class="container">
+            <h2 class="section-title">Today's Activities</h2>
+            <div class="activities-carousel">
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <i class="fas fa-shapes"></i>
+                    </div>
+                    <div class="activity-content">
+                        <h3>Shape Recognition</h3>
+                        <p>Learn about circles, squares, and triangles!</p>
+                        <div class="activity-meta">
+                            <span class="duration"><i class="fas fa-clock"></i> 15 min</span>
+                            <span class="difficulty"><i class="fas fa-star"></i> Easy</span>
+                        </div>
+                        <button class="start-btn">Start Activity</button>
+                    </div>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <i class="fas fa-spell-check"></i>
+                    </div>
+                    <div class="activity-content">
+                        <h3>Word Building</h3>
+                        <p>Build simple words and practice spelling!</p>
+                        <div class="activity-meta">
+                            <span class="duration"><i class="fas fa-clock"></i> 20 min</span>
+                            <span class="difficulty"><i class="fas fa-star"></i> Easy</span>
+                        </div>
+                        <button class="start-btn">Start Activity</button>
+                    </div>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="activity-content">
+                        <h3>Plant Growing</h3>
+                        <p>Watch plants grow and learn about nature!</p>
+                        <div class="activity-meta">
+                            <span class="duration"><i class="fas fa-clock"></i> 10 min</span>
+                            <span class="difficulty"><i class="fas fa-star"></i> Easy</span>
+                        </div>
+                        <button class="start-btn">Start Activity</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Resources -->
+    <section id="resources" class="learning-resources">
+        <div class="container">
+            <h2 class="section-title">Learning Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Video Lessons</h3>
+                    <p>Watch fun educational videos</p>
+                    <span class="resource-count">25 Videos</span>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Educational Games</h3>
+                    <p>Play and learn at the same time</p>
+                    <span class="resource-count">15 Games</span>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-headphones"></i>
+                    </div>
+                    <h3>Audio Stories</h3>
+                    <p>Listen to exciting stories</p>
+                    <span class="resource-count">30 Stories</span>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-print"></i>
+                    </div>
+                    <h3>Worksheets</h3>
+                    <p>Practice with printable activities</p>
+                    <span class="resource-count">50 Worksheets</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Section -->
+    <section id="progress" class="progress-section">
+        <div class="container">
+            <h2 class="section-title">My Learning Progress</h2>
+            <div class="progress-dashboard">
+                <div class="progress-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>5 Day Streak!</h3>
+                            <p>Keep up the great work!</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>12 Badges</h3>
+                            <p>Amazing achievements!</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>2.5 Hours</h3>
+                            <p>This week's learning</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="achievements">
+                    <h3>Recent Achievements</h3>
+                    <div class="badges-grid">
+                        <div class="badge earned">
+                            <i class="fas fa-star"></i>
+                            <span>First Steps</span>
+                        </div>
+                        <div class="badge earned">
+                            <i class="fas fa-book"></i>
+                            <span>Story Reader</span>
+                        </div>
+                        <div class="badge earned">
+                            <i class="fas fa-calculator"></i>
+                            <span>Math Whiz</span>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-lock"></i>
+                            <span>Science Explorer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Penreach STEAM</span>
+                </div>
+                <p>&copy; 2024 Penreach. Making learning fun for Foundation Phase learners.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Activity Modal -->
+    <div id="activityModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="activityTitle">Activity Title</h2>
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="activityContent">
+                    <!-- Activity content will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="foundation-phase.js"></script>
+</body>
+</html>

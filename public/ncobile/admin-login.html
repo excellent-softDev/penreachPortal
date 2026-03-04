@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Penreach STEAM Portal</title>
+    <link rel="stylesheet" href="admin-login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="login-bg">
+        <div class="floating-elements">
+            <div class="float-element" data-icon="🔐" style="--delay: 0s; --duration: 15s;"></div>
+            <div class="float-element" data-icon="🛡️" style="--delay: 3s; --duration: 18s;"></div>
+            <div class="float-element" data-icon="📊" style="--delay: 6s; --duration: 20s;"></div>
+            <div class="float-element" data-icon="⚙️" style="--delay: 9s; --duration: 16s;"></div>
+            <div class="float-element" data-icon="🔒" style="--delay: 12s; --duration: 22s;"></div>
+        </div>
+    </div>
+
+    <!-- Login Container -->
+    <div class="login-container">
+        <!-- Logo Section -->
+        <div class="logo-section">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Penreach STEAM</span>
+            </div>
+            <p class="logo-subtitle">Admin Portal</p>
+        </div>
+
+        <!-- Login Form -->
+        <div class="login-form-container">
+            <div class="form-header">
+                <h2>Welcome Back</h2>
+                <p>Sign in to access the admin dashboard</p>
+            </div>
+
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="email">
+                        <i class="fas fa-envelope"></i>
+                        Email Address
+                    </label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        required 
+                        placeholder="admin@penreach.org"
+                        autocomplete="email"
+                    >
+                    <span class="error-message" id="emailError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">
+                        <i class="fas fa-lock"></i>
+                        Password
+                    </label>
+                    <div class="password-input-container">
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            required 
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                        >
+                        <button type="button" class="password-toggle" id="passwordToggle">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <span class="error-message" id="passwordError"></span>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="rememberMe" name="rememberMe">
+                        <span class="checkmark"></span>
+                        Remember me
+                    </label>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="login-btn" id="loginBtn">
+                    <span class="btn-text">Sign In</span>
+                    <i class="fas fa-arrow-right btn-icon"></i>
+                </button>
+            </form>
+
+            <!-- Security Notice -->
+            <div class="security-notice">
+                <i class="fas fa-shield-alt"></i>
+                <p>This is a secure admin portal. Unauthorized access is prohibited and will be monitored.</p>
+            </div>
+
+            <!-- Back to Portal -->
+            <div class="back-link">
+                <a href="landing.html">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Portal
+                </a>
+            </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Authenticating...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-icon success">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Login Successful!</h3>
+            <p>Redirecting to admin dashboard...</p>
+        </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div id="errorModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-icon error">
+                <i class="fas fa-exclamation-circle"></i>
+            </div>
+            <h3>Login Failed</h3>
+            <p id="errorMessage">Invalid email or password. Please try again.</p>
+            <button class="modal-btn" id="errorModalBtn">Try Again</button>
+        </div>
+    </div>
+
+    <script src="admin-login.js"></script>
+</body>
+</html>

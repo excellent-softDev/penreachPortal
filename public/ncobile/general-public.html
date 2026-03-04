@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Resources Hub | Penreach STEAM</title>
+    <link rel="stylesheet" href="general-public.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Penreach STEAM</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#resources" class="nav-link">Resources</a>
+                <a href="#featured" class="nav-link">Featured</a>
+                <a href="#events" class="nav-link">Events</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="user-menu">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg">
+            <div class="floating-elements">
+                <div class="float-element" data-icon="📚" style="--delay: 0s; --duration: 15s;"></div>
+                <div class="float-element" data-icon="🎓" style="--delay: 2s; --duration: 18s;"></div>
+                <div class="float-element" data-icon="💡" style="--delay: 4s; --duration: 20s;"></div>
+                <div class="float-element" data-icon="🔬" style="--delay: 6s; --duration: 16s;"></div>
+                <div class="float-element" data-icon="🖥️" style="--delay: 8s; --duration: 22s;"></div>
+                <div class="float-element" data-icon="🌟" style="--delay: 10s; --duration: 19s;"></div>
+            </div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">Explore</span>
+                    <span class="title-line highlight">Educational Resources</span>
+                </h1>
+                <p class="hero-subtitle">Find curriculum-aligned materials for every level</p>
+                <div class="scroll-indicator">
+                    <div class="scroll-arrow">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <span>Explore Resources</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Level Navigation -->
+    <section class="education-levels">
+        <div class="container">
+            <div class="level-cards">
+                <div class="level-card" data-level="foundation">
+                    <div class="level-icon">
+                        <i class="fas fa-shapes"></i>
+                    </div>
+                    <h3>Foundation</h3>
+                    <p>Grade R-3 learning materials</p>
+                    <div class="level-stats">
+                        <span><i class="fas fa-book"></i> 250+ Resources</span>
+                    </div>
+                </div>
+
+                <div class="level-card" data-level="intermediate">
+                    <div class="level-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>Intermediate</h3>
+                    <p>Grade 4-6 educational content</p>
+                    <div class="level-stats">
+                        <span><i class="fas fa-book"></i> 400+ Resources</span>
+                    </div>
+                </div>
+
+                <div class="level-card" data-level="senior">
+                    <div class="level-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h3>Senior</h3>
+                    <p>Grade 7-9 advanced materials</p>
+                    <div class="level-stats">
+                        <span><i class="fas fa-book"></i> 350+ Resources</span>
+                    </div>
+                </div>
+
+                <div class="level-card" data-level="advanced">
+                    <div class="level-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Advanced</h3>
+                    <p>Grade 10-12 & Pre-University</p>
+                    <div class="level-stats">
+                        <span><i class="fas fa-book"></i> 500+ Resources</span>
+                    </div>
+                </div>
+
+                <div class="level-card" data-level="teachers">
+                    <div class="level-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Teachers</h3>
+                    <p>Educator resources & tools</p>
+                    <div class="level-stats">
+                        <span><i class="fas fa-book"></i> 300+ Resources</span>
+                    </div>
+                </div>
+
+                <div class="level-card" data-level="general">
+                    <div class="level-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>General Public</h3>
+                    <p>Community resources & information</p>
+                    <div class="level-stats">
+                        <span><i class="fas fa-book"></i> 200+ Resources</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter & Search Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-container">
+                <div class="search-bar">
+                    <div class="search-input-wrapper">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Search across all resources...">
+                        <button class="search-btn" id="searchBtn">Search</button>
+                    </div>
+                </div>
+
+                <div class="filter-controls">
+                    <div class="filter-group">
+                        <label class="filter-label">
+                            <i class="fas fa-calendar-alt"></i>
+                            Term
+                        </label>
+                        <div class="filter-pills" id="termFilter">
+                            <button class="filter-pill active" data-term="all">All Terms</button>
+                            <button class="filter-pill" data-term="1">Term 1</button>
+                            <button class="filter-pill" data-term="2">Term 2</button>
+                            <button class="filter-pill" data-term="3">Term 3</button>
+                            <button class="filter-pill" data-term="4">Term 4</button>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">
+                            <i class="fas fa-file-alt"></i>
+                            Content Type
+                        </label>
+                        <div class="filter-dropdown">
+                            <select id="contentTypeFilter" class="filter-select">
+                                <option value="all">All Types</option>
+                                <option value="videos">Videos</option>
+                                <option value="tutorials">Tutorials</option>
+                                <option value="lab-demonstrations">Lab Demonstrations</option>
+                                <option value="test-papers">Test Papers</option>
+                                <option value="exam-papers">Exam Papers</option>
+                                <option value="webinars">Webinars</option>
+                                <option value="events">Events</option>
+                                <option value="scholarships">Scholarships</option>
+                                <option value="past-papers">Past Papers</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <label class="filter-label">
+                            <i class="fas fa-book"></i>
+                            Subject
+                        </label>
+                        <div class="filter-dropdown">
+                            <select id="subjectFilter" class="filter-select">
+                                <option value="all">All Subjects</option>
+                                <option value="mathematics">Mathematics</option>
+                                <option value="physics">Physics</option>
+                                <option value="chemistry">Chemistry</option>
+                                <option value="biology">Biology</option>
+                                <option value="computer-science">Computer Science</option>
+                                <option value="language">Language Arts</option>
+                                <option value="social-sciences">Social Sciences</option>
+                                <option value="arts">Creative Arts</option>
+                                <option value="technology">Technology</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <button class="clear-filters-btn" id="clearFilters">
+                            <i class="fas fa-times"></i>
+                            Clear Filters
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic Resource Display -->
+    <section id="resources" class="resources-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Available Resources</h2>
+                <div class="results-count">
+                    <span id="resultsCount">Showing 1,500 resources</span>
+                </div>
+            </div>
+
+            <div class="resources-grid" id="resourcesGrid">
+                <!-- Resources will be dynamically loaded here -->
+            </div>
+
+            <div class="load-more-container">
+                <button class="load-more-btn" id="loadMoreBtn">
+                    <span>Load More Resources</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section id="featured" class="featured-section">
+        <div class="container">
+            <h2 class="section-title">Featured & Upcoming</h2>
+            
+            <div class="featured-content">
+                <div class="featured-webinars">
+                    <h3>Upcoming Webinars</h3>
+                    <div class="webinar-cards">
+                        <div class="webinar-card">
+                            <div class="webinar-badge">Live</div>
+                            <div class="webinar-content">
+                                <h4>STEAM Education Trends 2024</h4>
+                                <p>Join experts discussing the future of STEAM education</p>
+                                <div class="webinar-meta">
+                                    <span class="date"><i class="fas fa-calendar"></i> March 15, 2024</span>
+                                    <span class="time"><i class="fas fa-clock"></i> 14:00</span>
+                                </div>
+                                <button class="register-btn">Register Now</button>
+                            </div>
+                        </div>
+
+                        <div class="webinar-card">
+                            <div class="webinar-badge">Upcoming</div>
+                            <div class="webinar-content">
+                                <h4>Mathematics Teaching Strategies</h4>
+                                <p>Effective methods for teaching complex math concepts</p>
+                                <div class="webinar-meta">
+                                    <span class="date"><i class="fas fa-calendar"></i> March 22, 2024</span>
+                                    <span class="time"><i class="fas fa-clock"></i> 16:00</span>
+                                </div>
+                                <button class="register-btn">Register Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-scholarships">
+                    <h3>Scholarship Deadlines</h3>
+                    <div class="scholarship-cards">
+                        <div class="scholarship-card">
+                            <div class="scholarship-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="scholarship-content">
+                                <h4>Excellence in Science Scholarship</h4>
+                                <p>For outstanding Grade 12 students in Physical Sciences</p>
+                                <div class="deadline">
+                                    <i class="fas fa-clock"></i>
+                                    <span class="countdown" data-deadline="2024-03-31">15 days left</span>
+                                </div>
+                                <button class="apply-btn">Apply Now</button>
+                            </div>
+                        </div>
+
+                        <div class="scholarship-card">
+                            <div class="scholarship-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="scholarship-content">
+                                <h4>Teacher Development Grant</h4>
+                                <p>Professional development opportunities for educators</p>
+                                <div class="deadline">
+                                    <i class="fas fa-clock"></i>
+                                    <span class="countdown" data-deadline="2024-04-15">30 days left</span>
+                                </div>
+                                <button class="apply-btn">Apply Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featured-events">
+                    <h3>Major Events</h3>
+                    <div class="event-cards">
+                        <div class="event-card">
+                            <div class="event-date">
+                                <span class="day">25</span>
+                                <span class="month">MAR</span>
+                            </div>
+                            <div class="event-content">
+                                <h4>Annual Science Fair</h4>
+                                <p>Showcase innovative student projects</p>
+                                <span class="location"><i class="fas fa-map-marker-alt"></i> Mbombela Convention Center</span>
+                            </div>
+                        </div>
+
+                        <div class="event-card">
+                            <div class="event-date">
+                                <span class="day">08</span>
+                                <span class="month">APR</span>
+                            </div>
+                            <div class="event-content">
+                                <h4>Mathematics Olympiad</h4>
+                                <p>Regional mathematics competition</p>
+                                <span class="location"><i class="fas fa-map-marker-alt"></i> Various Schools</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Penreach STEAM</span>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Resources</h4>
+                        <a href="#">Foundation Phase</a>
+                        <a href="#">Intermediate Phase</a>
+                        <a href="#">Senior Phase</a>
+                        <a href="#">Advanced Level</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Support</h4>
+                        <a href="#">Help Center</a>
+                        <a href="#">Contact Us</a>
+                        <a href="#">FAQs</a>
+                        <a href="#">Technical Support</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Connect</h4>
+                        <a href="#">Newsletter</a>
+                        <a href="#">Social Media</a>
+                        <a href="#">Community Forum</a>
+                        <a href="#">Partnerships</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 Penreach. Empowering education through STEAM.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Resource Modal -->
+    <div id="resourceModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="resourceTitle">Resource Title</h2>
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="resourceContent">
+                    <!-- Resource content will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="general-public.js"></script>
+</body>
+</html>
