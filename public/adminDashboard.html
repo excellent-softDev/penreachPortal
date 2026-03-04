@@ -1,0 +1,865 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard - STEAM LMS</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+
+/* ================= GLOBAL ================= */
+
+body{
+  font-family:"Segoe UI",sans-serif;
+  margin:0;
+  background:linear-gradient(135deg,#eef2ff,#f8f9ff);
+  transition:all 0.3s ease;
+}
+
+.dark-mode{
+  background:linear-gradient(135deg,#141427,#1e1e35);
+  color:#f1f1f1;
+}
+
+a{ text-decoration:none; }
+button{ cursor:pointer; }
+
+/* ================= NAVBAR ================= */
+
+nav.navbar{
+  background:linear-gradient(90deg,#ff6b6b,#feca57,#48dbfb,#1dd1a1,#5f27cd);
+  color:white;
+  padding:12px 25px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.15);
+}
+
+nav.navbar h2{
+  margin:0;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+/* ================= LAYOUT ================= */
+
+#dashboard{
+  display:flex;
+  height:calc(100vh - 65px);
+}
+
+/* ================= SIDEBAR ================= */
+
+#sidebar{
+  width:260px;
+  background:linear-gradient(180deg,#1f1f35,#2b2b45);
+  color:white;
+  display:flex;
+  flex-direction:column;
+  padding-top:20px;
+  transition:0.3s ease;
+  box-shadow:4px 0 25px rgba(0,0,0,0.1);
+}
+
+#sidebar button{
+  border:none;
+  background:none;
+  color:white;
+  padding:16px 22px;
+  text-align:left;
+  width:100%;
+  font-weight:600;
+  transition:0.25s;
+  border-left:4px solid transparent;
+}
+
+#sidebar button:hover{
+  background:rgba(255,255,255,0.05);
+  border-left:4px solid #48dbfb;
+  transform:translateX(5px);
+}
+
+#sidebar button.active{
+  background:rgba(255,255,255,0.08);
+  border-left:4px solid #1dd1a1;
+}
+
+/* ================= CONTENT ================= */
+
+#content{
+  flex:1;
+  overflow-y:auto;
+  padding:35px;
+  background:transparent;
+  transition:0.3s;
+}
+
+.dark-mode #content{
+  background:transparent;
+}
+
+/* ================= CARDS ================= */
+
+.card{
+  border:none;
+  border-radius:20px;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(12px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  margin-bottom:25px;
+  padding:25px;
+  transition:all 0.3s ease;
+}
+
+.dark-mode .card{
+  background:rgba(40,40,60,0.8);
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 18px 40px rgba(0,0,0,0.15);
+}
+
+/* ================= PROFILE CARD ================= */
+
+#profile .card{
+  text-align:center;
+}
+
+#profile img{
+  border-radius:50%;
+  box-shadow:0 6px 20px rgba(0,0,0,0.2);
+  margin-bottom:10px;
+}
+
+/* ================= STATS ================= */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:25px;
+  margin-top:30px;
+}
+
+.stat-card{
+  color:white;
+  border-radius:20px;
+  padding:25px;
+  text-align:center;
+  font-weight:600;
+  box-shadow:0 12px 25px rgba(0,0,0,0.2);
+  transition:0.3s;
+}
+
+.stat-card:hover{
+  transform:scale(1.05);
+}
+
+.stat-number{
+  font-size:34px;
+  font-weight:bold;
+  margin-bottom:5px;
+}
+
+.stat-card:nth-child(1){ background:linear-gradient(135deg,#ff6b6b,#ff9f43);}
+.stat-card:nth-child(2){ background:linear-gradient(135deg,#48dbfb,#0abde3);}
+.stat-card:nth-child(3){ background:linear-gradient(135deg,#1dd1a1,#10ac84);}
+.stat-card:nth-child(4){ background:linear-gradient(135deg,#5f27cd,#341f97);}
+
+/* ================= FORMS ================= */
+
+input, select{
+  border-radius:12px!important;
+  padding:10px!important;
+  border:1px solid #ddd!important;
+  transition:0.3s;
+}
+
+input:focus, select:focus{
+  border-color:#48dbfb!important;
+  box-shadow:0 0 8px rgba(72,219,251,0.3)!important;
+}
+
+.quiz-question{
+  border:2px dashed #48dbfb;
+  padding:18px;
+  border-radius:15px;
+  margin-bottom:15px;
+  background:rgba(72,219,251,0.05);
+}
+
+/* ================= SEARCH ================= */
+
+.search-box{
+  margin-bottom:15px;
+  padding:12px 15px;
+  border-radius:12px;
+  border:1px solid #ccc;
+  width:100%;
+  transition:0.3s;
+}
+
+.search-box:focus{
+  border-color:#1dd1a1;
+  box-shadow:0 0 8px rgba(29,209,161,0.3);
+}
+
+/* ================= BUTTONS ================= */
+
+.btn{
+  border-radius:30px;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.07);
+  box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* ================= MEDIA ================= */
+
+video, iframe{
+  width:100%;
+  max-height:250px;
+  border-radius:12px;
+  margin-bottom:12px;
+  box-shadow:0 6px 15px rgba(0,0,0,0.2);
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar d-flex justify-content-between align-items-center">
+  <h2>Admin Dashboard</h2>
+  <div>
+    <button id="darkToggle" class="btn btn-light me-2">🌙 Dark Mode</button>
+    <button id="logoutBtn" class="btn btn-light">Logout</button>
+  </div>
+</nav>
+
+<div id="dashboard">
+  <!-- SIDEBAR -->
+  <div id="sidebar">
+    <button class="active" data-section="profile">Profile</button>
+    <button data-section="documents">Documents</button>
+    <button data-section="videos">Videos</button>
+    <button data-section="quizzes">Quizzes</button>
+    <button data-section="games">Mind Games</button>
+    <button data-section="analytics">Analytics</button>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div id="content">
+    <!-- PROFILE -->
+    <div id="profile">
+      <div class="card d-flex align-items-center">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" width="80" height="80" style="border-radius:50%;">
+        <h4 id="adminName" class="mt-2">Admin</h4>
+        <small id="adminEmail" class="text-muted">admin@email.com</small>
+        <div class="mt-1 text-primary">System Administrator</div>
+      </div>
+
+      <div class="stats mt-4">
+        <div class="stat-card"><div class="stat-number" id="totalMaterials">0</div>Total Materials</div>
+        <div class="stat-card"><div class="stat-number" id="totalVideos">0</div>Total Videos</div>
+        <div class="stat-card"><div class="stat-number" id="totalQuizzes">0</div>Total Quizzes</div>
+        <div class="stat-card"><div class="stat-number" id="totalGames">0</div>Total Mind Games</div>
+      </div>
+    </div>
+
+    <!-- DOCUMENTS -->
+    <div id="documents" style="display:none;">
+      <div class="card">
+        <h5>Upload Document</h5>
+        <form id="uploadForm" class="row g-2">
+          <div class="col-md-3"><input type="text" class="form-control" name="title" placeholder="Title" required></div>
+          <div class="col-md-2"><select id="docGrade" name="grade" class="form-select" required></select></div>
+          <div class="col-md-2">
+            <select id="docSubject" name="subject" class="form-select" required>
+              <option value="">Subject</option>
+              <option>Science</option>
+              <option>Technology</option>
+              <option>Engineering</option>
+              <option>Arts</option>
+              <option>Maths</option>
+            </select>
+          </div>
+          <div class="col-md-2"><select id="docSubcat" name="subCategory" class="form-select"></select></div>
+           
+          <div class="col-md-3"><input type="file" class="form-control" name="file" required></div>
+          <div class="col-md-2"><button type="submit" class="btn btn-primary w-100">Upload</button></div>
+        </form>
+      </div>
+      <input type="text" id="searchDocs" class="search-box" placeholder="Search documents...">
+      <div id="materialsList" class="row"></div>
+    </div>
+
+    <!-- VIDEOS -->
+    <div id="videos" style="display:none;">
+      <div class="card">
+        <h5>Upload Video</h5>
+        <form id="videoForm" class="row g-2" enctype="multipart/form-data">
+          <div class="col-md-3"><input type="text" class="form-control" name="title" placeholder="Video Title" required></div>
+          <div class="col-md-2"><select id="videoGrade" name="grade" class="form-select" required></select></div>
+          <div class="col-md-2">
+            <select id="videoSubject" name="subject" class="form-select" required>
+              <option value="">Subject</option>
+              <option>Science</option>
+              <option>Technology</option>
+              <option>Engineering</option>
+              <option>Arts</option>
+              <option>Maths</option>
+            </select>
+          </div>
+          <div class="col-md-2"><select id="videoSubcat" name="subCategory" class="form-select"></select></div>
+          
+          <div class="col-md-3"><input type="file" class="form-control" name="file"></div>
+          <div class="col-md-3"><input type="text" class="form-control" name="link" placeholder="YouTube link (optional)"></div>
+          <div class="col-md-2"><button type="submit" class="btn btn-danger w-100">Upload</button></div>
+        </form>
+      </div>
+      <input type="text" id="searchVideos" class="search-box" placeholder="Search videos...">
+      <div id="videosList" class="row"></div>
+    </div>
+
+    <!-- QUIZZES -->
+    <div id="quizzes" style="display:none;">
+      <div class="card">
+        <h5>Create Quiz</h5>
+        <div class="row g-2 mb-2">
+          <div class="col-md-2"><select id="quizGrade" class="form-select" required></select></div>
+          <div class="col-md-3"><select id="quizSubject" class="form-select" required>
+              <option value="">Subject</option>
+              <option>Science</option>
+              <option>Technology</option>
+              <option>Engineering</option>
+              <option>Arts</option>
+              <option>Maths</option>
+            </select>
+          </div>
+          <div class="col-md-2"><select id="quizSubcat" class="form-select"></select></div> 
+        </div>
+        <div id="questionsContainer"></div>
+        <button class="btn btn-secondary mb-3" onclick="addQuestion()">+ Add Question</button>
+        <button class="btn btn-success" onclick="saveQuiz()">Save Quiz</button>
+        <hr>
+        <h5 class="mt-3">Existing Quizzes</h5>
+        <div id="quizzesList" class="row"></div>
+      </div>
+    </div>
+
+    <!-- GAMES -->
+    <div id="games" style="display:none;">
+      <div class="card">
+        <h5>Upload Mind Game</h5>
+        <form id="gameForm" class="row g-2">
+          <div class="col-md-2"><select id="gameGrade" name="grade" class="form-select" required></select></div>
+          <div class="col-md-3"><select id="gameSubject" name="subject" class="form-select" required>
+              <option value="">Subject</option>
+              <option>Science</option>
+              <option>Technology</option>
+              <option>Engineering</option>
+              <option>Arts</option>
+              <option>Maths</option>
+            </select>
+          </div>           
+          <div class="col-md-2"><select id="gameSubcat" name="subCategory" class="form-select"></select></div>
+
+          <div class="col-md-3"><input type="file" class="form-control" name="gameFile" required></div>
+          <div class="col-md-4"><button type="submit" class="btn btn-warning w-100">Upload Game</button></div>
+        </form>
+      </div>
+      <input type="text" id="searchGames" class="search-box" placeholder="Search games...">
+      <div id="gamesList" class="row"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ANALYTICS -->
+<div id="analytics" style="display:none;">
+  <div class="card">
+    <h4>System Analytics Dashboard</h4>
+
+    <canvas id="materialsChart" class="mb-4"></canvas>
+    <canvas id="subjectsChart" class="mb-4"></canvas>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+
+// ================= SIDEBAR NAVIGATION =================
+ const sections = ["profile","documents","videos","quizzes","games","analytics"]; 
+document.querySelectorAll("#sidebar button").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll("#sidebar button").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    sections.forEach(sec=>document.getElementById(sec).style.display="none");
+    document.getElementById(btn.dataset.section).style.display="block";
+
+    if(btn.dataset.section==="analytics"){
+   loadAnalytics();
+}
+  });
+});
+
+// ================= DARK MODE =================
+const darkToggle = document.getElementById("darkToggle");
+darkToggle.addEventListener("click", ()=>{
+  document.body.classList.toggle("dark-mode");
+  darkToggle.textContent = document.body.classList.contains("dark-mode")?"☀️ Light Mode":"🌙 Dark Mode";
+});
+
+// ================= LOGOUT =================
+document.getElementById("logoutBtn").addEventListener("click", ()=>{
+  localStorage.removeItem("admin");
+  window.location.href="/admin.html";
+});
+
+// ================= ADMIN INFO =================
+const adminData = JSON.parse(localStorage.getItem("admin"))||{name:"Admin",email:"admin@email.com"};
+document.getElementById("adminName").innerText = adminData.name;
+document.getElementById("adminEmail").innerText = adminData.email;
+
+// ================= SUBJECTS & GRADES =================
+ // ================= SUBJECTS & GRADES =================
+
+// Generate grades 1–12
+const grades = Array.from({length:12},(_,i)=>i+1);
+
+// 🔥 NEW: Grade-based subcategory logic
+function getSubcategories(subject, grade){
+
+  grade = parseInt(grade);
+
+  // ===== SCIENCE =====
+  if(subject === "Science"){
+    if(grade >= 10){
+      return ["Physical Sciences","Life Sciences","Chemistry"];
+    }
+    return []; // Grade 1–9 → NO subcategories
+  }
+
+  // ===== ENGINEERING =====
+  if(subject === "Engineering"){
+    if(grade >= 10){
+      return ["Mechanical","Electrical","Civil"];
+    }
+    return []; // Grade 1–9 → NO subcategories
+  }
+
+  // ===== ARTS (ALL GRADES) =====
+  if(subject === "Arts"){
+    return ["Drawing","Painting"];
+  }
+
+  // ===== Others =====
+  return [];
+}
+
+// 🔥 Updated populate function (GRADE FIRST logic)
+ function populateSubcatAndGrades(subjectId, subcatId, gradeId){
+
+  const subjectSelect = document.getElementById(subjectId);
+  const subcatSelect = document.getElementById(subcatId);
+  const gradeSelect = document.getElementById(gradeId);
+
+  // Generate grades 1–12
+  gradeSelect.innerHTML = `<option value="">Select Grade First</option>`;
+  for(let i=1;i<=12;i++){
+    gradeSelect.innerHTML += `<option value="${i}">Grade ${i}</option>`;
+  }
+
+  // 🔒 Disable subject & subcategory initially
+  subjectSelect.disabled = true;
+  subcatSelect.style.display = "none";
+
+  // 🔥 When grade changes → enable subject
+  gradeSelect.addEventListener("change", ()=>{
+    if(gradeSelect.value){
+      subjectSelect.disabled = false;
+    } else {
+      subjectSelect.disabled = true;
+      subcatSelect.style.display = "none";
+    }
+  });
+
+  function updateSubcategories(){
+    const subject = subjectSelect.value;
+    const grade = parseInt(gradeSelect.value);
+
+    subcatSelect.innerHTML = `<option value="">Subcategory (optional)</option>`;
+
+    if(!subject || !grade){
+      subcatSelect.style.display = "none";
+      return;
+    }
+
+    const subcats = getSubcategories(subject, grade);
+
+    if(subcats.length === 0){
+      subcatSelect.style.display = "none";
+    } else {
+      subcatSelect.style.display = "block";
+      subcats.forEach(sc=>{
+        subcatSelect.innerHTML += `<option value="${sc}">${sc}</option>`;
+      });
+    }
+  }
+
+  subjectSelect.addEventListener("change", updateSubcategories);
+}
+
+// Apply to all forms
+["docSubject","videoSubject","quizSubject","gameSubject"].forEach(id=>{
+  const subId = id.replace("Subject","Subcat");
+  const gradeId = id.replace("Subject","Grade");
+  populateSubcatAndGrades(id,subId,gradeId);
+});
+// ================= DATA ARRAYS =================
+let documents=[], videos=[], quizzes=[], games=[];
+
+// ================= LOAD ALL =================
+async function loadAll(){
+  documents = await (await fetch("/api/documents")).json();
+  videos = await (await fetch("/api/videos")).json();
+  quizzes = await (await fetch("/api/quizzes")).json();
+  games = await (await fetch("/api/games")).json();
+
+  document.getElementById("totalMaterials").innerText = documents.length;
+  document.getElementById("totalVideos").innerText = videos.length;
+  document.getElementById("totalQuizzes").innerText = quizzes.length;
+  document.getElementById("totalGames").innerText = games.length;
+
+  renderList("materialsList",documents,"file","searchDocs");
+  renderList("videosList",videos,"video","searchVideos");
+  renderList("quizzesList",quizzes,"quiz");
+  renderList("gamesList",games,"game","searchGames");
+}
+
+// ================= RENDER LIST =================
+function renderList(containerId,list,type,searchId=""){
+  const container = document.getElementById(containerId);
+  container.innerHTML="";
+  let searchText = searchId ? document.getElementById(searchId).value.toLowerCase() : "";
+  list.filter(item=>{
+    const combined = ((item.title||"")+" "+(item.subject||"")+" "+(item.subCategory||"")).toLowerCase();
+    return combined.includes(searchText);
+  }).forEach(item=>{
+    const subjectHtml = item.subCategory ? `${item.subject} <span class="badge bg-primary">${item.subCategory}</span>` : item.subject;
+    const gradeText = item.grade||"";
+    let content="";
+
+if(type==="file"){
+
+  content = `
+    <a href="/uploads/${item.file}" target="_blank"
+    class="btn btn-success btn-sm mb-2 w-100">
+    Download Document
+    </a>
+    <button onclick="generateQuizFromDocument('${item._id}')"
+    class="btn btn-purple btn-sm w-100">
+    🤖 Auto Generate Quiz (AI)
+    </button>
+  `;
+}
+     
+
+ 
+    else if(type==="video"){
+      if(item.link) content = item.link.includes("youtube.com") ? `<iframe width="100%" height="200" src="${item.link.replace("watch?v=","embed/")}" frameborder="0" allowfullscreen></iframe>` : `<video controls src="${item.link}"></video>`;
+      else if(item.file) content=`<video controls src="/uploads/${item.file}"></video>`;
+      else content="<p>No video</p>";
+    } else if(type==="quiz"){
+      content = item.questions.map((q,i)=>`<div class="quiz-question"><strong>Q${i+1}:</strong> ${q.question}<br>${q.options.map(o=>`- ${o}<br>`).join("")}<em>Answer: ${q.answer}</em></div>`).join("");
+    } else if(type==="game") content=`<a href="/uploads/${item.gameFile}" target="_blank" class="btn btn-warning w-100">Play</a>`;
+
+    container.innerHTML+=`<div class="col-md-4 mb-3"><div class="card p-3"><h5>${item.title}</h5><p>${gradeText} - ${subjectHtml}</p>${content}<button onclick="deleteItem('${item._id}','${type}')" class="btn btn-danger btn-sm mt-2">Delete</button></div></div>`;
+  });
+}
+
+// ================= DELETE =================
+async function deleteItem(id,type){
+  if(!confirm("Are you sure?")) return;
+  let apiType = type==="file"?"documents":type==="video"?"videos":type==="quiz"?"quizzes":"games";
+  const res = await fetch(`/api/${apiType}/${id}`,{method:"DELETE"});
+  const data = await res.json();
+  if(res.ok) loadAll();
+  else alert(data.msg||"Delete failed");
+}
+
+// ================= FORM SUBMITS =================
+ document.getElementById("uploadForm").addEventListener("submit", async e=>{
+  e.preventDefault();
+
+  const form = e.target;
+  const fileInput = form.querySelector("[name='file']");
+  const file = fileInput.files[0];
+
+  if(!file){
+    alert("Select a file");
+    return;
+  }
+
+  const formData = new FormData(form);
+
+  try{
+    const res = await fetch("/api/documents",{
+      method:"POST",
+      body: formData
+    });
+
+    const data = await res.json();
+
+    if(!res.ok){
+      alert(data.msg || "Upload failed");
+      return;
+    }
+
+    alert("Upload successful");
+
+    form.reset();
+    loadAll();
+
+  }catch(err){
+    console.error(err);
+    alert("Server connection error");
+  }
+
+});
+document.getElementById("videoForm").addEventListener("submit",async e=>{
+  e.preventDefault(); const formData=new FormData(e.target);
+  await fetch("/api/videos",{method:"POST",body:formData});
+  e.target.reset(); loadAll();
+});
+
+// ================= QUIZ =================
+let questions=[];
+function addQuestion(){
+  const container = document.getElementById("questionsContainer");
+  const index = questions.length;
+  const div = document.createElement("div");
+  div.className="quiz-question";
+  div.innerHTML=`
+    <input type="text" placeholder="Question" class="form-control mb-1" data-index="${index}" data-type="question">
+    <input type="text" placeholder="Option 1" class="form-control mb-1" data-index="${index}" data-type="option">
+    <input type="text" placeholder="Option 2" class="form-control mb-1" data-index="${index}" data-type="option">
+    <input type="text" placeholder="Option 3" class="form-control mb-1" data-index="${index}" data-type="option">
+    <input type="text" placeholder="Option 4" class="form-control mb-1" data-index="${index}" data-type="option">
+    <input type="text" placeholder="Answer" class="form-control mb-1" data-index="${index}" data-type="answer">
+  `;
+  container.appendChild(div);
+  questions.push({question:"",options:["","","",""],answer:""});
+}
+
+async function saveQuiz(){
+  const qDivs = document.querySelectorAll("#questionsContainer .quiz-question");
+  qDivs.forEach((div,i)=>{
+    questions[i].question = div.querySelector('[data-type="question"]').value;
+    questions[i].options = Array.from(div.querySelectorAll('[data-type="option"]')).map(inp=>inp.value);
+    questions[i].answer = div.querySelector('[data-type="answer"]').value;
+  });
+  const payload = {
+    title:`Quiz ${Date.now()}`,
+    subject:document.getElementById("quizSubject").value,
+    subCategory:document.getElementById("quizSubcat").value,
+    grade:document.getElementById("quizGrade").value,
+    questions
+  };
+  await fetch("/api/quizzes",{method:"POST",body:JSON.stringify(payload),headers:{"Content-Type":"application/json"}});
+  questions=[]; document.getElementById("questionsContainer").innerHTML="";
+  loadAll();
+}
+
+// ================= ANALYTICS INTELLIGENCE =================
+
+let materialsChart=null;
+let subjectsChart=null;
+
+async function loadAnalytics(){
+
+  try{
+
+    const [docsRes,videosRes,quizRes,gamesRes] = await Promise.all([
+      fetch("/api/documents"),
+      fetch("/api/videos"),
+      fetch("/api/quizzes"),
+      fetch("/api/games")
+    ]);
+
+    const documents = await docsRes.json();
+    const videos = await videosRes.json();
+    const quizzes = await quizRes.json();
+    const games = await gamesRes.json();
+
+    // ===== Material Type Distribution =====
+
+    const ctx1 = document.getElementById("materialsChart");
+
+    if(materialsChart) materialsChart.destroy();
+
+    materialsChart = new Chart(ctx1,{
+      type:"doughnut",
+      data:{
+        labels:["Documents","Videos","Quizzes","Games"],
+        datasets:[{
+          data:[
+            documents.length,
+            videos.length,
+            quizzes.length,
+            games.length
+          ],
+          backgroundColor:[
+            "#ff6b6b",
+            "#48dbfb",
+            "#1dd1a1",
+            "#5f27cd"
+          ]
+        }]
+      },
+      options:{
+        plugins:{
+          title:{
+            display:true,
+            text:"Learning Resource Distribution"
+          }
+        }
+      }
+    });
+
+    // ===== Subject Distribution =====
+
+    const subjectCount={};
+
+    [...documents,...videos,...quizzes,...games].forEach(item=>{
+      if(item.subject){
+        subjectCount[item.subject]=
+          (subjectCount[item.subject]||0)+1;
+      }
+    });
+
+    const ctx2 = document.getElementById("subjectsChart");
+
+    if(subjectsChart) subjectsChart.destroy();
+
+    subjectsChart = new Chart(ctx2,{
+      type:"bar",
+      data:{
+        labels:Object.keys(subjectCount),
+        datasets:[{
+          label:"Resources per Subject",
+          data:Object.values(subjectCount)
+        }]
+      },
+      options:{
+        plugins:{
+          title:{
+            display:true,
+            text:"Subject Intelligence Overview"
+          }
+        }
+      }
+    });
+
+  }catch(err){
+    console.error(err);
+  }
+}
+
+// ================= AI AUTO QUIZ GENERATOR =================
+
+async function generateQuizFromDocument(documentId){
+
+  if(!confirm("Generate AI quiz from this document?")) return;
+
+  try{
+
+    const res = await fetch("/api/ai/generate-quiz",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({
+        documentId
+      })
+    });
+
+    if(!res.ok){
+      alert("AI quiz generation failed");
+      return;
+    }
+
+    const quiz = await res.json();
+
+    alert("AI Quiz Generated Successfully!");
+
+    // Optional: Auto open quiz tab
+    document.querySelectorAll("#sidebar button").forEach(b=>{
+      if(b.dataset.section==="quizzes"){
+        b.click();
+      }
+    });
+
+    // Load quizzes again
+    loadAll();
+
+  }catch(err){
+    console.error(err);
+    alert("AI server error");
+  }
+}
+
+// ================= SEARCH =================
+["searchDocs","searchVideos","searchGames"].forEach(id=>{
+  document.getElementById(id).addEventListener("input",()=>loadAll());
+});
+
+//Quiz Generator//
+async function generateQuizFromDocument(documentId){
+
+  if(!confirm("Generate AI quiz from this document?")) return;
+
+  try{
+
+    const res = await fetch("/api/ai/generate-quiz",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({ documentId })
+    });
+
+    const data = await res.json();
+
+    if(!res.ok){
+      alert(data.msg || "AI generation failed");
+      return;
+    }
+
+    alert("AI Quiz Generated!");
+
+    loadAll();
+
+    // Automatically open quiz section
+    document.querySelectorAll("#sidebar button").forEach(b=>{
+      if(b.dataset.section==="quizzes"){
+        b.click();
+      }
+    });
+
+  }catch(err){
+    console.error(err);
+    alert("Server connection error");
+  }
+
+}
+loadAll();
+</script>
+</body>
+</html>
+
+
+

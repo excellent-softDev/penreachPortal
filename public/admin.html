@@ -1,0 +1,206 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login - STEAM LMS</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+/* ================= GLOBAL MICROSOFT STYLE ================= */
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg,#f3f2f1,#ffffff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ================= LOGIN BOX ================= */
+
+.login-container {
+  width: 420px;
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  animation: fadeIn 0.6s ease;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 600;
+  color: #0078d4;
+  margin-bottom: 25px;
+}
+
+.login-container h2 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #323130;
+}
+
+.form-control {
+  border-radius: 5px;
+  padding: 11px;
+  font-size: 14px;
+}
+
+.form-control:focus {
+  border-color: #0078d4;
+  box-shadow: 0 0 0 2px rgba(0,120,212,0.25);
+}
+
+.btn-primary {
+  background-color: #0078d4;
+  border: none;
+  border-radius: 5px;
+  padding: 11px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.btn-primary:hover {
+  background-color: #106ebe;
+}
+
+/* ================= MICROSOFT STYLE LOADING OVERLAY ================= */
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(243,242,241,0.96);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.microsoft-spinner {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 4px solid #e1dfdd;
+  border-top: 4px solid #0078d4;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity:0; transform: translateY(10px); }
+  to { opacity:1; transform: translateY(0); }
+}
+
+#message {
+  font-size: 13px;
+}
+
+.footer-text {
+  text-align: center;
+  font-size: 12px;
+  color: #605e5c;
+  margin-top: 20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= LOADING OVERLAY ================= -->
+
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="microsoft-spinner"></div>
+</div>
+
+<!-- ================= LOGIN FORM ================= -->
+
+<div class="login-container">
+
+  <div class="logo">STEAM LMS</div>
+
+  <h2>Sign in</h2>
+
+  <form id="loginForm">
+    <div class="mb-3">
+      <input type="email" id="email" class="form-control" placeholder="Email address" required>
+    </div>
+
+    <div class="mb-3">
+      <input type="password" id="password" class="form-control" placeholder="Password" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">
+      Sign in
+    </button>
+  </form>
+
+  <div id="message" class="mt-3 text-danger text-center"></div>
+
+  <div class="footer-text">
+    © 2026 STEAM Learning Portal
+  </div>
+
+</div>
+
+<!-- ================= SCRIPT ================= -->
+
+<script>
+
+const form = document.getElementById("loginForm");
+const message = document.getElementById("message");
+const overlay = document.getElementById("loadingOverlay");
+
+form.addEventListener("submit", async (e)=>{
+  e.preventDefault();
+
+  message.textContent = "";
+  overlay.style.display = "flex";
+
+  const data = {
+    email: document.getElementById("email").value,
+    password: document.getElementById("password").value
+  };
+
+  try {
+    const res = await fetch("/api/admin/login", {
+      method: "POST",
+      headers: { "Content-Type":"application/json" },
+      body: JSON.stringify(data)
+    });
+
+    const result = await res.json();
+
+    if(res.ok){
+      localStorage.setItem("admin", JSON.stringify(result.admin));
+      localStorage.setItem("adminId", result.admin._id);
+
+      window.location.href = "/adminDashboard.html";
+    } else {
+      message.textContent = result.message || "Login failed";
+    }
+
+  } catch(err){
+    console.error("FETCH ERROR:", err);
+    message.textContent = "Server not reachable";
+  }
+
+  overlay.style.display = "none";
+});
+
+</script>
+
+</body>
+</html>
